@@ -19,9 +19,22 @@ class Provider extends AbstractProvider
     /**
      * {@inheritdoc}
      */
+    protected $scopes = ['read'];
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function additionalConfigKeys()
+    {
+        return ['url'];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     protected function getAuthUrl($state)
     {
-        return $this->buildAuthUrlFromBase('http://localhost:8000/api/oauth/access_token', $state);
+        return $this->buildAuthUrlFromBase($this->getUrl().'/api/oauth/access_token', $state);
     }
 
     /**
@@ -29,7 +42,7 @@ class Provider extends AbstractProvider
      */
     protected function getTokenUrl()
     {
-        return 'http://casdoor:8000/api/login/oauth/access_token';
+        return $this->getUrl().'/api/login/oauth/access_token';
     }
 
     /**
@@ -52,6 +65,13 @@ class Provider extends AbstractProvider
             $data[$key] = $valueObj->getValue();
         }
         return (new User())->setRaw($user)->map($data);
+    }
+
+    /**
+     * @return url of casdoor
+     */
+    protected function getUrl(){
+        return rtrim($this->getConfig('url'),'/');
     }
 
 }
