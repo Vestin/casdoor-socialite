@@ -1,0 +1,34 @@
+{
+    "name": "vestin/casdoor-socialite",
+    "description": "Casdoor OAuth2 Provider for Laravel Socialite",
+    "keywords": [
+        "laravel",
+        "oauth",
+        "provider",
+        "socialite",
+        "casdoor"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "vestin",
+            "email": "vestinzds@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "ext-json": "*",
+        "socialiteproviders/manager": "~4.0",
+        "lcobucci/jwt": "^3.0 || ^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SocialiteProviders\\Casdoor\\": ""
+        }
+    },
+    "support": {
+        "issues": "https://github.com/socialiteproviders/providers/issues",
+        "source": "https://github.com/socialiteproviders/providers",
+        "docs": "https://socialiteproviders.com/casdoor"
+    }
+}
