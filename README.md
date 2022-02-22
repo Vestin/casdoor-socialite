@@ -1,7 +1,7 @@
 # Casdoor
 
 ```bash
-composer require socialiteproviders/casdoor
+composer require vestin/casdoor-socialite
 ```
 
 ## Installation & Basic Usage
