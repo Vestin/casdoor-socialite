@@ -15,6 +15,6 @@ class CasdoorExtendSocialite
      */
     public function handle(SocialiteWasCalled $socialiteWasCalled)
     {
-        $socialiteWasCalled->extendSocialite('casdoor', CasdoorProvider::class);
+        $socialiteWasCalled->extendSocialite('casdoor', Provider::class);
     }
 }
