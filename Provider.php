@@ -5,7 +5,8 @@ namespace SocialiteProviders\Casdoor;
 
 
 use GuzzleHttp\RequestOptions;
-use Lcobucci\JWT\Parser;
+use Lcobucci\JWT\Token\Parser;
+use Lcobucci\JWT\Encoding\JoseEncoder;
 use SocialiteProviders\Manager\OAuth2\AbstractProvider;
 use SocialiteProviders\Manager\OAuth2\User;
 
