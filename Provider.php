@@ -50,9 +50,8 @@ class Provider extends AbstractProvider
      */
     protected function getUserByToken($token)
     {
-        $parser = new Parser();
-        $jwtToken = $parser->parse($token);
-        return $jwtToken->getClaims();
+        $jwtToken = (new Parser(new JoseEncoder()))->parse($token);
+        return $jwtToken->claims()->all();
     }
 
     /**
@@ -62,11 +61,11 @@ class Provider extends AbstractProvider
     {
         $data = [];
         foreach ($user as $key => $valueObj){
-            $data[$key] = $valueObj->getValue();
+            $data[$key] = $valueObj;
         }
         return (new User())->setRaw($user)->map($data);
     }
-
+    
     /**
      * @return url of casdoor
      */
